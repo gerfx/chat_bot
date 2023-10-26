@@ -1,0 +1,15 @@
+version: "3.1"
+
+rules:
+
+- rule: Выдавать рецепт
+  steps:
+  - intent: получить_рецепт
+  - action: utter_give_recept
+
+- rule: Изменять ингредиенты
+  steps:
+  - intent: изменить_ингредиенты
+  - action: utter_change_recept
+
+

@@ -1,0 +1,24 @@
+version: "3.1"
+
+intents:
+  - получить_рецепт
+  - изменить_ингредиенты
+  - изменить_шаги
+  - прощаться
+
+actions:
+  - utter_change_recept
+  - utter_give_recept
+
+
+
+responses:
+  utter_change_recept:
+  - text: "Я изменил рецепт"
+
+  utter_give_recept:
+  - text: "Вот твой рецепт"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

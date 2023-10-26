@@ -1,0 +1,14 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: path 1
+  steps:
+  - user: |
+      подскажи рецепт пельменей
+    intent: получить_рецепт
+  - action: utter_give_recept
+  - user: |
+      можешь изменить говядину на курицу
+    intent: изменить_ингредиенты
+  - action: utter_change_recept
