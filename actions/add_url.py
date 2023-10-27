@@ -16,8 +16,9 @@ def insert_words(file, cursor):
 
 
 def write():
-    cur_dir = os.curdir
-    with open(os.path.join(cur_dir, "recipes.txt"), "r") as recipes,  sqlite3.connect("recipes.db") as conn:
+    relative = os.path.join(os.curdir, "actions/recipes.txt")
+    absolute_path = os.path.abspath(relative)
+    with open(absolute_path, "r") as recipes,  sqlite3.connect("recipes.db") as conn:
         cursor = conn.cursor()
 
         create_tables(cursor)

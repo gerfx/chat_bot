@@ -3,7 +3,7 @@ import sqlite3
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-from add_url import write
+from actions.add_url import write
 
 
 write()
