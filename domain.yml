@@ -1,23 +1,24 @@
 version: "3.1"
 
 intents:
-  - получить_рецепт
-  - изменить_ингредиенты
-  - изменить_шаги
-  - искать_по_интредиентам
+  - get_recipe
+  - change_ingredients
+  - change_steps
+  - find_by_ingrideents
   - прощаться
 
 actions:
+  - utter_new_request
   - utter_change_recept
   - utter_give_recept
 
 
 
 responses:
-  utter_change_recept:
+  utter_change_recipe:
   - text: "Я изменил рецепт"
 
-  utter_give_recept:
+  utter_give_recipe:
   - text: "Вот твой рецепт"
 
 session_config:
