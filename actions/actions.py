@@ -20,13 +20,8 @@ class ActionGiveRecipe(Action):
             )
             (meal_id, url) = curs.fetchone()
             curs.execute("INSERT INTO USER (user_id, meal_id) VALUES (?, ?)", (user_id, meal_id))
-            print(meal_id, url)
             if url:
                 dispatcher.utter_message(url)
-                curs.execute(
-                    "INSERT INTO user VALUES(?, ?)",
-                    (user_id, meal_id)
-                )
             else:
                 dispatcher.utter_message("Извините, я не знаю этот рецепт")
 

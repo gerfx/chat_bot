@@ -10,5 +10,5 @@ stories:
   - action: utter_give_recipe
   - user: |
       можешь изменить говядину на курицу
-    intent: change_ingredients
-  - action: utter_change_recipe
+    intent: show_recipe
+  - action: utter_show_recipe

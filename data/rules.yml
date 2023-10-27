@@ -4,12 +4,12 @@ rules:
 
 - rule: give_recipe
   steps:
-  - intent: получить_рецепт
+  - intent: get_recipe
   - action: utter_give_recipe
 
-- rule: change_ingredients
+- rule: show_recipe
   steps:
-  - intent: change_ingredients
-  - action: utter_change_recipe
+  - intent: show_history
+  - action: utter_show_history
 
 

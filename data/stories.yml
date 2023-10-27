@@ -6,6 +6,6 @@ stories:
   steps:
   - intent: get_recipe
   - action: utter_give_recipe
-  - intent: change_recipe
-  - action: utter_change_recipe
+  - intent: show_history
+  - action: utter_show_history
 

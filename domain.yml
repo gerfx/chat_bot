@@ -4,19 +4,18 @@ intents:
   - get_recipe
   - change_ingredients
   - change_steps
-  - find_by_ingrideents
-  - прощаться
+  - show_history
 
 actions:
   - utter_new_request
-  - utter_change_recipe
   - utter_give_recipe
+  - utter_show_history
 
 
 
 responses:
-  utter_change_recipe:
-  - text: "Я изменил рецепт"
+  utter_show_history:
+  - text: "Я показал рецепт"
 
   utter_give_recipe:
   - text: "Вот твой рецепт"
