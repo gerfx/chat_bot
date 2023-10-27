@@ -4,9 +4,9 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
 
-class ActionNewRequest(Action):
+class ActionGiveRecipe(Action):
     def name(self):
-        return "utter_new_request"
+        return "utter_give_recipe"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, **kwargs):
         user_id = tracker.sender_id
@@ -15,14 +15,16 @@ class ActionNewRequest(Action):
         with sqlite3.connect('recipes.db') as conn:
             curs = conn.cursor()
             curs.execute(
-                "select id, url from recipes where meal_name = ?",
+                "SELECT id, url FROM recipes WHERE meal_name = ?",
                 (meal, )
             )
             (meal_id, url) = curs.fetchone()
+            curs.execute("INSERT INTO USER (user_id, meal_id) VALUES (?, ?)", (user_id, meal_id))
+            print(meal_id, url)
             if url:
                 dispatcher.utter_message(url)
                 curs.execute(
-                    "insert into user values(?, ?)",
+                    "INSERT INTO user VALUES(?, ?)",
                     (user_id, meal_id)
                 )
             else:
@@ -31,15 +33,14 @@ class ActionNewRequest(Action):
 
 class ActionShowHistory(Action):
     def name(self):
-        return "action_show_history"
+        return "utter_show_history"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, **kwargs):
         user_id = tracker.sender_id
         with sqlite3.connect('recipes.db') as conn:
             curs = conn.cursor()
             curs.execute(
-                "select meal from user inner join recipe by user.meal_id = meal.meal_id"
-                "where user.user_id = ?",
+                "SELECT MEAL FROM USER INNER JOIN recipe BY user.meal_id = meal.meal_id WHERE user.user_id = ?",
                 (user_id, )
             )
 

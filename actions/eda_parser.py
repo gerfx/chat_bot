@@ -22,6 +22,6 @@ for i in range(1, 20):
                     if recipe_name not in recipes_dict:
                         recipes_dict[recipe_name] = "https://eda.ru" + recipe_link
 
-with open("recipes.txt", "w") as f:
+with open("recipes.txt", "w", encoding='utf-8') as f:
     for key, value in recipes_dict.items():
-        f.write(key, value)
+        f.write(f"{key}: {value} \n")
