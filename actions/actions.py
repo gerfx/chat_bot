@@ -6,7 +6,7 @@ from rasa_sdk.executor import CollectingDispatcher
 
 class ActionNewRequest(Action):
     def name(self):
-        return "action_new_request"
+        return "utter_new_request"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, **kwargs):
         user_id = tracker.sender_id
