@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 recipes_dict = {}
-#azazaaza
+
 for i in range(1, 20):
     url = f"https://eda.ru/recepty?page={i}"
     response = requests.get(url)
@@ -21,3 +21,7 @@ for i in range(1, 20):
                     recipe_link = link['href']
                     if recipe_name not in recipes_dict:
                         recipes_dict[recipe_name] = "https://eda.ru" + recipe_link
+
+with open("recipes.txt", "w") as f:
+    for key, value in recipes_dict.items():
+        f.write(key, value)
