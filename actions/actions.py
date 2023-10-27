@@ -3,7 +3,7 @@ import sqlite3
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-from actions.add_url import write
+from add_url import write
 
 
 write()
@@ -13,7 +13,7 @@ class ActionGiveRecipe(Action):
     def name(self):
         return "action_give_recipe"
 
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, **kwargs):
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain):
         user_id = tracker.sender_id
         meal = tracker.get_slot("meal")
 

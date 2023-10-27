@@ -5,6 +5,7 @@ ngrok http 5005
 
 В отдельном терминале
 ```sh
+cd actions
 rasa run actions
 ```
 

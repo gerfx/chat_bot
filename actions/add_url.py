@@ -11,12 +11,14 @@ def create_tables(cursor):
 def insert_words(file, cursor):
     words = file.readlines()
 
+    id_1 = 0
     for word in words:
-        cursor.execute("INSERT INTO Meals (meal_name, meal_url) VALUES (?, ?)", (word.split(': ')))
+        cursor.execute("INSERT INTO Meals (id, meal_name, meal_url) VALUES (?, ?, ?)", (id_1, word.split(': ')[0], word.split(': ')[1]))
+        id_1 += 1
 
 
 def write():
-    relative = os.path.join(os.curdir, "actions/recipes.txt")
+    relative = os.path.join(os.curdir, "recipes.txt")
     absolute_path = os.path.abspath(relative)
     with open(absolute_path, "r") as recipes,  sqlite3.connect("recipes.db") as conn:
         cursor = conn.cursor()
