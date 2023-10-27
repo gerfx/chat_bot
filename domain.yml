@@ -9,8 +9,8 @@ intents:
 
 actions:
   - utter_new_request
-  - utter_change_recept
-  - utter_give_recept
+  - utter_change_recipe
+  - utter_give_recipe
 
 
 
