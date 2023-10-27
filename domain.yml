@@ -5,12 +5,15 @@ intents:
   - change_ingredients
   - change_steps
   - show_history
+  - find_by_ingredients
 
 actions:
   - utter_new_request
   - utter_give_recipe
   - utter_show_history
 
+entities:
+  - meal
 
 
 responses:
