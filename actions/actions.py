@@ -11,7 +11,7 @@ write()
 
 class ActionGiveRecipe(Action):
     def name(self):
-        return "utter_give_recipe"
+        return "action_give_recipe"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, **kwargs):
         user_id = tracker.sender_id
@@ -51,4 +51,5 @@ class ActionShowHistory(Action):
                 dispatcher.utter_message("\n".join(history))
             else:
                 dispatcher.utter_message("История пуста")
+        return history
 

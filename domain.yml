@@ -11,6 +11,7 @@ actions:
   - utter_new_request
   - utter_give_recipe
   - utter_show_history
+  - action_give_recipe
 
 entities:
   - meal

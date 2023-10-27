@@ -6,6 +6,7 @@ rules:
   steps:
   - intent: get_recipe
   - action: utter_give_recipe
+  - action: action_give_recipe
 
 - rule: show_recipe
   steps:
