@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 recipes_dict = {}
-
+#azaza
 for i in range(1, 20):
     url = f"https://eda.ru/recepty?page={i}"
     response = requests.get(url)
