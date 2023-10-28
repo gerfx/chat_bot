@@ -3,7 +3,7 @@ import sqlite3
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-from add_url import write
+from add_url import write, morph
 
 
 write()
@@ -17,6 +17,7 @@ class ActionGiveRecipe(Action):
         user_id = tracker.sender_id
         meal = tracker.get_latest_entity_values("meal")
         meal = str(next(meal))
+        meal = morph.parse(meal)[0].normal_form
 
         with sqlite3.connect('recipes.db') as conn:
             curs = conn.cursor()

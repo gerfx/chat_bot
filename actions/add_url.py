@@ -1,5 +1,9 @@
 import os
 import sqlite3
+import pymorphy2
+
+
+morph = pymorphy2.MorphAnalyzer()
 
 
 def create_tables(cursor):
@@ -13,7 +17,8 @@ def insert_words(file, cursor):
 
     id_1 = 0
     for word in words:
-        cursor.execute("INSERT INTO Meals (id, meal_name, meal_url) VALUES (?, ?, ?)", (id_1, word.split(': ')[0], word.split(': ')[1]))
+        p = morph.parse(word.split(': ')[0])[0].normal_form
+        cursor.execute("INSERT INTO Meals (id, meal_name, meal_url) VALUES (?, ?, ?)", (id_1, p, word.split(': ')[1]))
         id_1 += 1
 
 
