@@ -15,7 +15,8 @@ class ActionGiveRecipe(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain):
         user_id = tracker.sender_id
-        meal = tracker.get_slot("meal")
+        meal = tracker.get_latest_entity_values("meal")
+        meal = str(next(meal))
 
         with sqlite3.connect('recipes.db') as conn:
             curs = conn.cursor()
